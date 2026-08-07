@@ -3,14 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Microgreens — [Nombre de tu marca]</title>
+<title>Come Bonito — Microgreens Zapopan</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,600&family=Work+Sans:wght@400;500;600&display=swap');
 
   :root{
-    --bg: #0e0e0d;
+    --bg: #2c2727;
     --paper: #f2ede4;
     --line: rgba(242,237,228,0.14);
+    --magenta: #995062;
+    --teal: #4e7f81;
     --girasol: #6b2e3a;
     --rabano: #c4443b;
     --brocoli: #4c7a3d;
@@ -21,11 +23,21 @@
   }
 
   *{ box-sizing:border-box; margin:0; padding:0; }
+
   html{ scroll-behavior:smooth; }
-  body{ background:var(--bg); color:var(--paper); font-family:'Work Sans', sans-serif; line-height:1.5; }
+
+  body{
+    background:var(--bg);
+    color:var(--paper);
+    font-family:'Work Sans', sans-serif;
+    line-height:1.5;
+  }
+
   h1,h2,h3{ font-family:'Fraunces', serif; font-weight:500; }
+
   a{ color:inherit; }
 
+  /* NAV */
   nav{
     position:sticky; top:0; z-index:50;
     display:flex; gap:2px; overflow-x:auto;
@@ -45,17 +57,40 @@
   nav a:hover{ opacity:1; }
   .dot{ width:9px; height:9px; border-radius:50%; flex-shrink:0; }
 
+  /* HERO */
   header.hero{
-    min-height:78vh; display:flex; flex-direction:column; justify-content:center;
+    min-height:88vh; display:flex; flex-direction:column; justify-content:center;
     padding:40px 24px; max-width:720px; margin:0 auto; text-align:left;
+    position:relative;
   }
-  .eyebrow{ font-size:12px; letter-spacing:0.14em; text-transform:uppercase; opacity:0.6; margin-bottom:18px; }
-  .hero h1{ font-size:clamp(2.4rem, 8vw, 4.2rem); line-height:1.02; margin-bottom:22px; }
-  .hero p{ font-size:17px; opacity:0.8; max-width:46ch; margin-bottom:28px; }
-  .schedule{ display:flex; flex-direction:column; gap:10px; border-top:1px solid var(--line); padding-top:22px; margin-top:8px; font-size:14px; }
+  .eyebrow{
+    font-size:12px; letter-spacing:0.14em; text-transform:uppercase;
+    opacity:0.6; margin-bottom:18px;
+  }
+  .brand-mark{ margin-bottom:8px; }
+  .brand-mark img{ width:100%; max-width:320px; height:auto; display:block; }
+  .visually-hidden{
+    position:absolute; width:1px; height:1px; overflow:hidden;
+    clip:rect(0,0,0,0); white-space:nowrap;
+  }
+  .hero h1{
+    font-size:clamp(2.6rem, 9vw, 4.6rem);
+    line-height:0.98; letter-spacing:-0.01em;
+  }
+  .hero h1 .come{ display:block; color:var(--paper); }
+  .hero h1 .bonito{ display:block; color:var(--magenta); }
+  .hero p{ font-size:17px; opacity:0.8; max-width:46ch; margin:26px 0 28px; }
+  .swatch-strip{ display:flex; gap:6px; margin-bottom:24px; }
+  .swatch-strip span{ width:28px; height:6px; border-radius:3px; }
+  .schedule{
+    display:flex; flex-direction:column; gap:10px;
+    border-top:1px solid var(--line); padding-top:22px; margin-top:8px;
+    font-size:14px;
+  }
   .schedule .row{ display:flex; justify-content:space-between; gap:16px; opacity:0.85; }
-  .schedule .row b{ font-weight:600; }
+  .schedule .row b{ font-weight:600; color:var(--teal); }
 
+  /* PRODUCT SECTIONS */
   section.product{
     scroll-margin-top:64px;
     min-height:100vh;
@@ -65,18 +100,41 @@
     position:relative;
   }
   .product-inner{ max-width:720px; margin:0 auto; width:100%; }
-  .tag{ display:inline-flex; align-items:center; gap:8px; font-size:12px; letter-spacing:0.1em; text-transform:uppercase; opacity:0.7; margin-bottom:20px; }
+  .tag{
+    display:inline-flex; align-items:center; gap:8px;
+    font-size:12px; letter-spacing:0.1em; text-transform:uppercase;
+    opacity:0.7; margin-bottom:20px;
+  }
   .swatch{ width:14px; height:14px; border-radius:50%; }
-  .badge-estrella{ font-size:11px; letter-spacing:0.06em; text-transform:uppercase; border:1px solid currentColor; padding:3px 10px; border-radius:999px; margin-left:10px; opacity:0.85; }
+  .badge-estrella{
+    font-size:11px; letter-spacing:0.06em; text-transform:uppercase;
+    border:1px solid currentColor; padding:3px 10px; border-radius:999px;
+    margin-left:10px; opacity:0.85;
+  }
   .product h2{ font-size:clamp(2rem, 6vw, 3rem); margin-bottom:18px; }
   .product .desc{ font-size:16px; opacity:0.82; max-width:52ch; margin-bottom:24px; }
   .facts{ display:flex; flex-wrap:wrap; gap:10px 28px; font-size:14px; opacity:0.75; }
   .facts div span{ display:block; font-size:11px; text-transform:uppercase; letter-spacing:0.06em; opacity:0.6; margin-bottom:4px; }
 
-  footer{ padding:60px 24px 80px; text-align:center; border-top:1px solid var(--line); font-size:13px; opacity:0.6; }
+  /* ART SLOT — se llena solo cuando subes la imagen con el nombre correcto */
+  .art-frame{
+    width:100%; max-width:380px; aspect-ratio:1;
+    margin-bottom:28px; border-radius:6px; overflow:hidden;
+  }
+  .art-frame img{ width:100%; height:100%; object-fit:cover; display:block; }
+
+  /* per-section accent applied via inline style on .swatch/.tag color */
+
+  footer{
+    padding:60px 24px 80px; text-align:center; border-top:1px solid var(--line);
+    font-size:13px; opacity:0.6;
+  }
   footer .socials{ margin-top:14px; display:flex; gap:18px; justify-content:center; }
 
-  details.research{ margin-top:32px; border-top:1px solid var(--line); padding-top:20px; }
+  /* DETAILS / INVESTIGACIÓN */
+  details.research{
+    margin-top:32px; border-top:1px solid var(--line); padding-top:20px;
+  }
   details.research summary{
     cursor:pointer; font-size:13px; letter-spacing:0.04em; text-transform:uppercase;
     opacity:0.75; list-style:none; display:flex; align-items:center; gap:8px;
@@ -100,6 +158,7 @@
 
   .disclaimer{ font-size:12px; opacity:0.5; margin-top:14px; max-width:60ch; }
 
+  /* FUENTES */
   section#fuentes{ padding:70px 24px; border-top:1px solid var(--line); }
   section#fuentes .product-inner{ max-width:720px; margin:0 auto; }
   section#fuentes h2{ font-size:1.6rem; margin-bottom:8px; }
@@ -109,7 +168,9 @@
   ol.refs li::before{ content: counter(ref) '.'; position:absolute; left:0; opacity:0.5; }
   ol.refs li a{ opacity:0.7; text-decoration:underline; word-break:break-all; }
 
-  @media (prefers-reduced-motion: reduce){ html{ scroll-behavior:auto; } }
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+  }
 </style>
 </head>
 <body>
@@ -127,7 +188,11 @@
 
 <header class="hero" id="inicio">
   <div class="eyebrow">Microgreens · Zapopan / Guadalajara</div>
-  <h1>[Nombre de tu marca]</h1>
+  <div class="brand-mark">
+    <img src="images/come-bonito-logo.jpg" alt="Come Bonito">
+    <h1 class="visually-hidden">Come Bonito</h1>
+  </div>
+  <div class="swatch-strip"><span style="background:var(--magenta)"></span><span style="background:var(--teal)"></span><span style="background:var(--paper)"></span></div>
   <p>Microgreens recién cortados, sembrados y cosechados en Zapopan. Cada bolsa se llena el mismo día que se vende.</p>
   <div class="schedule">
     <div class="row"><span>Sábados — Mercado de Productores Club de Leones</span><b>GDL</b></div>
@@ -142,6 +207,7 @@
       Girasol negro
       <span class="badge-estrella">De cajón</span>
     </div>
+    <div class="art-frame"><img src="images/girasol-negro.jpg" alt="" onerror="this.parentElement.style.display='none'"></div>
     <h2>Girasol negro</h2>
     <p class="desc">Sabor a nuez, textura crocante. Uno de los microgreens más rendidores y de los favoritos en el stand — el que primero se agota.</p>
     <div class="facts">
@@ -149,6 +215,7 @@
       <div><span>Aporta</span>Vitamina E, grasas buenas</div>
       <div><span>Úsalo en</span>Tacos, tortas, ensaladas</div>
     </div>
+
     <details class="research">
       <summary>Investigación y tabla nutrimental</summary>
       <div class="research-body">
@@ -175,6 +242,7 @@
       Rábano Champion
       <span class="badge-estrella">De cajón</span>
     </div>
+    <div class="art-frame"><img src="images/rabano-champion.jpg" alt="" onerror="this.parentElement.style.display='none'"></div>
     <h2>Rábano Champion</h2>
     <p class="desc">Picor suave y fresco, tallos rosados. Le da vida a cualquier plato con solo un puñito.</p>
     <div class="facts">
@@ -182,6 +250,7 @@
       <div><span>Aporta</span>Vitamina C</div>
       <div><span>Úsalo en</span>Tostadas, aguachile, tacos</div>
     </div>
+
     <details class="research">
       <summary>Investigación y tabla nutrimental</summary>
       <div class="research-body">
@@ -208,6 +277,7 @@
       Brócoli
       <span class="badge-estrella">De cajón</span>
     </div>
+    <div class="art-frame"><img src="images/brocoli.jpg" alt="" onerror="this.parentElement.style.display='none'"></div>
     <h2>Brócoli</h2>
     <p class="desc">Sabor suave, casi neutro — el más fácil de incorporar a cualquier comida sin cambiar el sabor.</p>
     <div class="facts">
@@ -215,6 +285,7 @@
       <div><span>Aporta</span>Sulforafano (antioxidante)</div>
       <div><span>Úsalo en</span>Licuados, ensaladas, huevos</div>
     </div>
+
     <details class="research">
       <summary>Investigación y tabla nutrimental</summary>
       <div class="research-body">
@@ -240,6 +311,7 @@
       <span class="swatch" style="background:var(--chicharo)"></span>
       Chícharo
     </div>
+    <div class="art-frame"><img src="images/chicharo.jpg" alt="" onerror="this.parentElement.style.display='none'"></div>
     <h2>Chícharo</h2>
     <p class="desc">Dulce, sabe exactamente a chícharo fresco. De los que más sorprenden a quien lo prueba por primera vez.</p>
     <div class="facts">
@@ -247,6 +319,7 @@
       <div><span>Aporta</span>Vitamina A y C</div>
       <div><span>Úsalo en</span>Ensaladas, wraps, de botana solo</div>
     </div>
+
     <details class="research">
       <summary>Investigación y tabla nutrimental</summary>
       <div class="research-body">
@@ -272,6 +345,7 @@
       <span class="swatch" style="background:var(--arugula)"></span>
       Arúgula
     </div>
+    <div class="art-frame"><img src="images/arugula.jpg" alt="" onerror="this.parentElement.style.display='none'"></div>
     <h2>Arúgula</h2>
     <p class="desc">Picor a mostaza, intensa. Para quien quiere darle carácter al plato.</p>
     <div class="facts">
@@ -279,6 +353,7 @@
       <div><span>Aporta</span>Vitamina K</div>
       <div><span>Úsalo en</span>Pizzas, pastas, ensaladas</div>
     </div>
+
     <details class="research">
       <summary>Investigación y tabla nutrimental</summary>
       <div class="research-body">
@@ -304,6 +379,7 @@
       <span class="swatch" style="background:var(--zanahoria)"></span>
       Zanahoria
     </div>
+    <div class="art-frame"><img src="images/zanahoria.jpg" alt="" onerror="this.parentElement.style.display='none'"></div>
     <h2>Zanahoria</h2>
     <p class="desc">Delicado y sutilmente dulce, con un toque herbal. El más fino de la charola.</p>
     <div class="facts">
@@ -311,6 +387,7 @@
       <div><span>Aporta</span>Betacaroteno</div>
       <div><span>Úsalo en</span>Guarniciones, platos delicados</div>
     </div>
+
     <details class="research">
       <summary>Investigación y tabla nutrimental</summary>
       <div class="research-body">
@@ -336,6 +413,7 @@
       <span class="swatch" style="background:var(--bokchoi)"></span>
       Bok choi
     </div>
+    <div class="art-frame"><img src="images/bok-choi.jpg" alt="" onerror="this.parentElement.style.display='none'"></div>
     <h2>Bok choi</h2>
     <p class="desc">Fresco, ligero sabor a col. Aguanta bien salteados de último momento.</p>
     <div class="facts">
@@ -343,6 +421,7 @@
       <div><span>Aporta</span>Vitamina C, calcio</div>
       <div><span>Úsalo en</span>Salteados, sopas, tacos</div>
     </div>
+
     <details class="research">
       <summary>Investigación y tabla nutrimental</summary>
       <div class="research-body">
@@ -367,21 +446,22 @@
     <h2>Fuentes</h2>
     <p class="lead">La información nutrimental de esta página se basa en estudios científicos y análisis especializados. Los números son aproximados y varían según cultivar, sustrato, luz y etapa de cosecha — los presentamos con su fuente para que puedas verificarlos tú mismo.</p>
     <ol class="refs">
-      <li>Xiao, Z., Lester, G. E., Luo, Y., & Wang, Q. (2012). Assessment of Vitamin and Carotenoid Concentrations of Emerging Food Products: Edible Microgreens. <em>Journal of Agricultural and Food Chemistry</em>, 60(31), 7644–7651. <a href="https://pubs.acs.org/doi/10.1021/jf300459b" target="_blank">doi.org/10.1021/jf300459b</a></li>
-      <li>Comprehensive Evaluation of Metabolites and Minerals in 6 Microgreen Species and the Influence of Maturity. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7897203/" target="_blank">PMC7897203</a></li>
-      <li>Select microgreens in custom diet may help deliver desired nutrients — Penn State University. <a href="https://www.psu.edu/news/research/story/select-microgreens-custom-diet-may-help-deliver-desired-nutrients" target="_blank">psu.edu</a></li>
-      <li>Radish microgreens produced without substrate in a vertical multi-layered growing unit are rich in nutritional metabolites (2023). <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10536316/" target="_blank">PMC10536316</a></li>
-      <li>The therapeutic potential of red radish microgreens (2025), <em>Journal of Future Foods</em>. <a href="https://www.tandfonline.com/doi/pdf/10.1080/19476337.2025.2467410" target="_blank">tandfonline.com</a></li>
-      <li>Sulforaphane Bioavailability in Healthy Subjects Fed a Single Serving of Fresh Broccoli Microgreens (2023). <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10606698/" target="_blank">PMC10606698</a></li>
-      <li>Sprouts vs. Microgreens as Novel Functional Foods. <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7587365/" target="_blank">PMC7587365</a></li>
-      <li>USDA FoodData Central. <a href="https://fdc.nal.usda.gov/" target="_blank">fdc.nal.usda.gov</a></li>
+      <li id="ref5">Xiao, Z., Lester, G. E., Luo, Y., & Wang, Q. (2012). Assessment of Vitamin and Carotenoid Concentrations of Emerging Food Products: Edible Microgreens. <em>Journal of Agricultural and Food Chemistry</em>, 60(31), 7644–7651. <a href="https://pubs.acs.org/doi/10.1021/jf300459b" target="_blank">doi.org/10.1021/jf300459b</a></li>
+      <li id="ref6">Comprehensive Evaluation of Metabolites and Minerals in 6 Microgreen Species and the Influence of Maturity. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7897203/" target="_blank">PMC7897203</a></li>
+      <li id="ref7">Select microgreens in custom diet may help deliver desired nutrients — Penn State University (estudio mineral comparativo, incluye girasol negro, rábano, brócoli y arúgula). <a href="https://www.psu.edu/news/research/story/select-microgreens-custom-diet-may-help-deliver-desired-nutrients" target="_blank">psu.edu</a></li>
+      <li id="ref8">Radish microgreens produced without substrate in a vertical multi-layered growing unit are rich in nutritional metabolites (2023). <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10536316/" target="_blank">PMC10536316</a></li>
+      <li id="ref9">The therapeutic potential of red radish microgreens (2025), <em>Journal of Future Foods</em>. <a href="https://www.tandfonline.com/doi/pdf/10.1080/19476337.2025.2467410" target="_blank">tandfonline.com</a></li>
+      <li id="ref10-12">Sulforaphane Bioavailability in Healthy Subjects Fed a Single Serving of Fresh Broccoli Microgreens (2023). <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10606698/" target="_blank">PMC10606698</a></li>
+      <li id="ref15">Sprouts vs. Microgreens as Novel Functional Foods: Variation of Nutritional and Phytochemical Profiles and Their In vitro Bioactive Properties. <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7587365/" target="_blank">PMC7587365</a></li>
+      <li id="ref16-17">Comprehensive Evaluation of Metabolites and Minerals in 6 Microgreen Species — sección arúgula. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7897203/" target="_blank">PMC7897203</a></li>
+      <li>USDA FoodData Central — base de datos de referencia para comparación con vegetales maduros. <a href="https://fdc.nal.usda.gov/" target="_blank">fdc.nal.usda.gov</a></li>
     </ol>
-    <p class="disclaimer" style="margin-top:24px">Esta página es material educativo de divulgación, no asesoría médica ni nutricional personalizada. Si tienes una condición de salud específica o tomas medicamentos, consulta a tu médico o nutriólogo antes de hacer cambios importantes en tu dieta.</p>
+    <p class="disclaimer" style="margin-top:24px">Esta página es material educativo de divulgación, no asesoría médica ni nutricional personalizada. Si tienes una condición de salud específica o tomas medicamentos (por ejemplo anticoagulantes, relevante para vegetales altos en vitamina K), consulta a tu médico o nutriólogo antes de hacer cambios importantes en tu dieta.</p>
   </div>
 </section>
- 
+
 <footer>
-  [Nombre de tu marca] · Microgreens de Zapopan, Jalisco
+  Come Bonito · Microgreens de Zapopan, Jalisco
   <div class="socials">
     <a href="#">Instagram</a>
     <a href="#">Facebook</a>
